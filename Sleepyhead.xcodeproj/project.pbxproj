@@ -13,8 +13,7 @@
 		1D1ADCD01E668F3100B47202 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D1ADCCE1E668F3100B47202 /* LaunchScreen.storyboard */; };
 		1D1ADCDB1E668F3100B47202 /* SleepyheadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1ADCDA1E668F3100B47202 /* SleepyheadTests.swift */; };
 		1D1ADCE61E668F3100B47202 /* SleepyheadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1ADCE51E668F3100B47202 /* SleepyheadUITests.swift */; };
-		1D1ADCF41E66922800B47202 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1ADCF31E66922800B47202 /* AudioKit.framework */; };
-		1D1ADCF51E66922800B47202 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1ADCF31E66922800B47202 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1D4E59091EA724FB0003BF86 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4E59081EA724FB0003BF86 /* AudioKit.framework */; };
 		1DC508EA1E93277C001AB153 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC508E91E93277C001AB153 /* ViewController.swift */; };
 		1DE6034C1E97497000165BEA /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DE6034B1E97497000165BEA /* splash.png */; };
 /* End PBXBuildFile section */
@@ -43,7 +42,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1D1ADCF51E66922800B47202 /* AudioKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,7 +61,7 @@
 		1D1ADCE11E668F3100B47202 /* SleepyheadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepyheadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D1ADCE51E668F3100B47202 /* SleepyheadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepyheadUITests.swift; sourceTree = "<group>"; };
 		1D1ADCE71E668F3100B47202 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D1ADCF31E66922800B47202 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		1D4E59081EA724FB0003BF86 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = Carthage/Build/iOS/AudioKit.framework; sourceTree = "<group>"; };
 		1DC508E91E93277C001AB153 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1DE6034B1E97497000165BEA /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D1ADCF41E66922800B47202 /* AudioKit.framework in Frameworks */,
+				1D4E59091EA724FB0003BF86 /* AudioKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,11 +95,11 @@
 		1D1ADCB91E668F3100B47202 = {
 			isa = PBXGroup;
 			children = (
-				1D1ADCF31E66922800B47202 /* AudioKit.framework */,
 				1D1ADCC41E668F3100B47202 /* Sleepyhead */,
 				1D1ADCD91E668F3100B47202 /* SleepyheadTests */,
 				1D1ADCE41E668F3100B47202 /* SleepyheadUITests */,
 				1D1ADCC31E668F3100B47202 /* Products */,
+				1D4E59071EA724FA0003BF86 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,6 +145,14 @@
 			path = SleepyheadUITests;
 			sourceTree = "<group>";
 		};
+		1D4E59071EA724FA0003BF86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D4E59081EA724FB0003BF86 /* AudioKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,6 +164,7 @@
 				1D1ADCBF1E668F3100B47202 /* Frameworks */,
 				1D1ADCC01E668F3100B47202 /* Resources */,
 				1D1ADCF61E66922800B47202 /* Embed Frameworks */,
+				1D4E590A1EA725260003BF86 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -218,6 +225,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = QFJ4H94E84;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 					};
 					1D1ADCD51E668F3100B47202 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -278,6 +286,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D4E590A1EA725260003BF86 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/AudioKit.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1D1ADCBE1E668F3100B47202 /* Sources */ = {
@@ -432,12 +457,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = QFJ4H94E84;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Sleepyhead/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jordanhankins.Sleepyhead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -449,12 +477,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = QFJ4H94E84;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Sleepyhead/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jordanhankins.Sleepyhead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
