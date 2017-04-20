@@ -15,6 +15,9 @@ import MediaPlayer
 
 class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     @IBOutlet weak var reverbLabel: UILabel!
+    @IBOutlet weak var reverbSlider: UISlider!
+    @IBOutlet weak var secondsLabel: UILabel!
+    
     var audioPlayer : AudioPlayer = AudioPlayer()
     var timer : CountdownTimer = CountdownTimer()
     
@@ -22,22 +25,10 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         super.viewDidLoad()
         
         // Called when the timer hits 0
-        timer.completionHandler = {
-            () -> Void in
-            print("Timer complete!")
-        }
+        timer.completionHandler = {self.complete()}
         
         // Called everytime the timer ticks
-        timer.tickHandler = {
-            () -> Void in
-            // Update the time label
-            
-            // Update the verbed out volume
-            let percentage : Float = Float(self.timer.currentSeconds!) / Float(self.timer.initialSeconds!)
-            self.audioPlayer.verbedOutLevel = 1.0 - percentage
-            
-            print("Seconds: \(self.timer.currentSeconds!), Verb: \(percentage)")
-        }
+        timer.tickHandler = {self.update()}
         
         timer.start(seconds: 20)
     }
@@ -81,6 +72,30 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         audioPlayer.verbedOutLevel = sender.value
         reverbLabel.text = "Reverb: \(sender.value)"
+    }
+    
+    // This function is called for everytime increment to update the time label, verb,
+    func update(){
+        // Update the verbed out volume
+        let percentage = Float(timer.currentSeconds!) / Float(timer.initialSeconds!)
+        audioPlayer.verbedOutLevel = 1.0 - percentage
+        
+        // Update the time label
+        secondsLabel.text = "Seconds: \(timer.currentSeconds!)"
+        
+        // Update Reverb Label
+        reverbLabel.text = "Reverb: \(audioPlayer.verbedOutLevel)"
+        
+        // Update the reverb slider
+        reverbSlider.value = audioPlayer.verbedOutLevel
+        
+        print("Seconds: \(timer.currentSeconds!), Verb: \(audioPlayer.verbedOutLevel)")
+    }
+    
+    // This function is called once the timer has finished
+    func complete(){
+        
+        print("Timer complete!")
     }
 }
 

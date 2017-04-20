@@ -55,6 +55,8 @@
                     </view>
                     <connections>
                         <outlet property="reverbLabel" destination="END-Eh-TSC" id="ZIk-hU-wOE"/>
+                        <outlet property="reverbSlider" destination="Mmg-Ig-VcS" id="sjY-ro-NOp"/>
+                        <outlet property="secondsLabel" destination="G0e-pP-1ls" id="oOx-dV-L42"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
