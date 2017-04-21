@@ -40,5 +40,9 @@
 	</array>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>$(PRODUCT_NAME) uses music for playback.</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

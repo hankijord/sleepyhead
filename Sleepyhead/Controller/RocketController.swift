@@ -10,6 +10,7 @@ import UIKit
 import AudioKit
 import MediaPlayer
 import AKPickerView
+import Hero
 
 class RocketController: UIViewController, MPMediaPickerControllerDelegate,
             AKPickerViewDelegate, AKPickerViewDataSource {

@@ -70,7 +70,7 @@
 		1D4E59081EA724FB0003BF86 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = Carthage/Build/iOS/AudioKit.framework; sourceTree = "<group>"; };
 		1DB371121EA9EE0600A6A745 /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
 		1DB371141EA9F69800A6A745 /* MoonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoonController.swift; path = Controller/MoonController.swift; sourceTree = "<group>"; };
-		1DC508E91E93277C001AB153 /* RocketController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketController.swift; sourceTree = "<group>"; };
+		1DC508E91E93277C001AB153 /* RocketController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RocketController.swift; path = Controller/RocketController.swift; sourceTree = "<group>"; };
 		1DF8F4A51EA8238D00060AB2 /* AKPickerView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AKPickerView.framework; path = Carthage/Build/iOS/AKPickerView.framework; sourceTree = "<group>"; };
 		1DF8F4A81EA82C6E00060AB2 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioPlayer.swift; path = Model/AudioPlayer.swift; sourceTree = "<group>"; };
 		1DF8F4AA1EA8431600060AB2 /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountdownTimer.swift; path = Model/CountdownTimer.swift; sourceTree = "<group>"; };
@@ -128,9 +128,8 @@
 		1D1ADCC41E668F3100B47202 /* Sleepyhead */ = {
 			isa = PBXGroup;
 			children = (
+				1DDF1EC41EAA1AEE00784F9C /* Controllers */,
 				1DF8F4A71EA82C4F00060AB2 /* Model */,
-				1DC508E91E93277C001AB153 /* RocketController.swift */,
-				1DB371141EA9F69800A6A745 /* MoonController.swift */,
 				1D1ADCC51E668F3100B47202 /* AppDelegate.swift */,
 				1D1ADCC91E668F3100B47202 /* Main.storyboard */,
 				1D1ADCCC1E668F3100B47202 /* Assets.xcassets */,
@@ -183,6 +182,15 @@
 				1D4E59081EA724FB0003BF86 /* AudioKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1DDF1EC41EAA1AEE00784F9C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1DC508E91E93277C001AB153 /* RocketController.swift */,
+				1DB371141EA9F69800A6A745 /* MoonController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		1DF8F4A71EA82C4F00060AB2 /* Model */ = {

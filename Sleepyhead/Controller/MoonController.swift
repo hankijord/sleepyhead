@@ -25,6 +25,11 @@ class MoonController: UIViewController {
         
         // Called everytime the timer ticks
         timer.tickHandler = {self.timerUpdate()}
+        
+        heroModalAnimationType = .selectBy(presenting: .push(direction: .down),
+                                           dismissing: .push(direction: .up))
+        
+       // heroModalAnimationTypeString =
     }
     
     override func viewDidAppear(_ animated: Bool) {
