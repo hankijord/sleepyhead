@@ -6,41 +6,35 @@
 //  Copyright © 2017 Jordan Hankins. All rights reserved.
 //
 
-//  https://groups.google.com/forum/#!topic/audiokit/vYmmn9aU8Vo
-
-
 import UIKit
 import AudioKit
 import MediaPlayer
 import AKPickerView
 
-class ViewController: UIViewController, MPMediaPickerControllerDelegate,
+class RocketController: UIViewController, MPMediaPickerControllerDelegate,
             AKPickerViewDelegate, AKPickerViewDataSource {
-    //
-    @IBOutlet weak var reverbLabel: UILabel!
-    @IBOutlet weak var reverbSlider: UISlider!
-    @IBOutlet weak var secondsLabel: UILabel!
+
     @IBOutlet var pickerView: AKPickerView!
-    
-    var audioPlayer : AudioPlayer = AudioPlayer()
-    var timer : CountdownTimer = CountdownTimer()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Sets up pickerView
         initPickerView()
-        
-        // Called when the timer hits 0
-        timer.completionHandler = {self.complete()}
-        
-        // Called everytime the timer ticks
-        timer.tickHandler = {self.update()}
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "transition" {
+            if let moonController = segue.destination as? MoonController {
+                // Pass the number of minutes to the moonController
+                moonController.totalMinutes = self.pickerView.selectedItem
+            }
+        }
     }
     
     /*
@@ -58,11 +52,6 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate,
         self.pickerView.pickerViewStyle = .wheel
         self.pickerView.maskDisabled = false
         self.pickerView.reloadData()
-    }
-    
-    @IBAction func start(_ sender: Any) {
-        // Start the timer for the number of seconds
-        timer.start(seconds: self.pickerView.selectedItem * 60)
     }
     
     /**
@@ -85,8 +74,9 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate,
     func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
         // remove the media picker screen
         self.dismiss(animated: true, completion:nil)
-        audioPlayer.convertSong(selectedSong: mediaItemCollection.items[0])
-        audioPlayer.playCurrentSong()
+        
+        //audioPlayer.convertSong(selectedSong: mediaItemCollection.items[0])
+        //audioPlayer.playCurrentSong()
     }
     
     /*
@@ -94,37 +84,6 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate,
      */
     func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
         self.dismiss(animated: true, completion:nil)
-    }
-    
-    @IBAction func sliderValueChanged(_ sender: UISlider) {
-        audioPlayer.verbedOutLevel = sender.value
-        reverbLabel.text = "Reverb: \(sender.value)"
-    }
-    
-    // This function is called for everytime increment to update the time label, verb,
-    func update(){
-        // Update the verbed out volume
-        let percentage = Float(timer.currentSeconds!) / Float(timer.initialSeconds!)
-        audioPlayer.verbedOutLevel = 1.0 - percentage
-        
-        let minutes = Int(timer.currentSeconds!/60)
-        let seconds = Int(timer.currentSeconds! % 60)
-        // Update the time label
-        secondsLabel.text = "m: \(minutes) s: \(seconds)"
-        
-        // Update Reverb Label
-        reverbLabel.text = "Reverb: \(audioPlayer.verbedOutLevel)"
-        
-        // Update the reverb slider
-        reverbSlider.value = audioPlayer.verbedOutLevel
-        
-        print("Seconds: \(timer.currentSeconds!), Verb: \(audioPlayer.verbedOutLevel)")
-    }
-    
-    // This function is called once the timer has finished
-    func complete(){
-        
-        print("Timer complete!")
     }
     
     // MARK: - AKPickerViewDataSource
@@ -140,7 +99,7 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate,
     // MARK: - AKPickerViewDelegate
     // Returns the selected item
     func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
-        print("You chose \(item) minutes.")
+        // print("You chose \(item) minutes.")
     }
 }
 

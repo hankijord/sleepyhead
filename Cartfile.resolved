@@ -1,2 +1,3 @@
 github "Akkyie/AKPickerView-Swift" "2.0.1"
 github "audiokit/AudioKit" "v3.6"
+github "lkzhao/Hero" "0.3.6"
