@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" image="zzz.png" translatesAutoresizingMaskIntoConstraints="NO" id="wWZ-Vl-tmB">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" image="launch-zzz.png" translatesAutoresizingMaskIntoConstraints="NO" id="wWZ-Vl-tmB">
                                 <rect key="frame" x="20" y="374" width="141" height="273"/>
                             </imageView>
                         </subviews>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="zzz.png" width="249" height="482"/>
+        <image name="launch-zzz.png" width="249" height="482"/>
     </resources>
 </document>
